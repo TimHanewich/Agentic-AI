@@ -1,0 +1,56 @@
+meta {
+  name: test2
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:11434/api/chat
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "model": "qwen2.5:0.5b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the weather today where I live?"
+      },
+      {
+        "role": "assistant",
+        "content": "To provide you with the current weather in your location, I need to know your geographical coordinates. Could you please tell me your city or state, and a specific date for which you want to see the weather? If that's not possible, could you please specify an approximate date?"
+      },
+      {
+        "role": "user",
+        "content": "Sarasota, FL"
+      }
+    ],
+    "stream": false,
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "get_current_weather",
+          "description": "Get the current weather for a location",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The location to get the weather for, e.g. San Francisco, CA"
+              },
+              "format": {
+                "type": "string",
+                "description": "The format to return the weather in, e.g. 'celsius' or 'fahrenheit'",
+                "enum": ["celsius", "fahrenheit"]
+              }
+            },
+            "required": ["location", "format"]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": "1",
+  "name": "tool-calling-examples",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "size": 0.0017194747924804688,
+  "filesCount": 2
+}
