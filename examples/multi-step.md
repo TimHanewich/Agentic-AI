@@ -8,7 +8,9 @@ I will demonstrate this in the following example. In the following, I am creatin
 ## Step 1: You provide the agent with system instructions, available tools, and a task
 In the below example, you'll see I am sending the agent several things:
 1. In the `messages` array, the agent's system prompt is specified. It is given explicit instructions on its role, it's ultimate goal, but more importantly *how it will accomplish the goal*.
-2. The agent is provided **tools** in the `tools` array. These are "tools" or capabilities that the agent will have available to itself in its task of fulfilling the user's request.
+2. The agent is provided **tools** in the `tools` array. These are "tools" or capabilities that the agent will have available to itself in its task of fulfilling the user's request. The agent is provided with **two tools**:
+    1. **search_web** - this tool provides the agent with a way to search the web. The tool has only one input that the agent must specify, called *subject*. This is term or phrase that will be searched.
+    2. **save_article** - this tool provides the agent with a way to save an artice. The tool has two inputs that the agent must specify: *article_name* (the name of the article) and *article_content* (the content of the article).
 3. The agent is given a specific request. In the `messages` array, after the system message, you'll see a user message. This user message is the user's prompt (request) to the agent. You'll see that, in this case, the agent's task is to write an article about sharks.
 
 With those three critical ingredients provided to the agent (explicit system instructions, tools to accomplish it's task, and an assigned task), the agent is asked to execute the task.
