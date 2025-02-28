@@ -30,44 +30,48 @@ With those three critical ingredients provided to the agent (explicit system ins
     [
         {
             "type": "function",
-            "function": {
+            "function": 
+            {
                 "name": "search_web",
                 "description": "Search the web for content about a particular subject.",
-                "parameters": {
+                "parameters": 
+                {
                     "type": "object",
-                    "properties": {
-                        "subject": {
+                    "properties": 
+                    {
+                        "subject": 
+                        {
                             "type": "string",
                             "description": "The subject or topic to search the web about."
                         }
                     },
-                    "required": [
-                        "subject"
-                    ]
+                    "required": ["subject"]
                 }
             }
         },
         {
             "type": "function",
-            "function": {
+            "function": 
+            {
                 "name": "save_article",
                 "description": "Save an article about a topic as a draft.",
-                "parameters": {
+                "parameters": 
+                {
                     "type": "object",
-                    "properties": {
-                        "article_name": {
+                    "properties": 
+                    {
+                        "article_name": 
+                        {
                             "type": "string",
                             "description": "The name of the article."
                         },
-                        "article_content": {
+                        "article_content": 
+                        {
                             "type": "string",
                             "description": "The content (body) of the article."
                         }
                     },
-                    "required": [
-                        "article_name",
-                        "article_content"
-                    ]
+                    "required": ["article_name", "article_content"]
                 }
             }
         }
@@ -203,11 +207,7 @@ The body of the next POST request would look like this:
                             "description": "The content (body) of the article."
                         }
                     },
-                    "required": 
-                    [
-                        "article_name",
-                        "article_content"
-                    ]
+                    "required": ["article_name", "article_content"]
                 }
             }
         }
@@ -232,7 +232,8 @@ The response to the POST request in step 4 looks like this (this is just the mes
     "tool_calls": 
     [
         {
-            "function": {
+            "function": 
+            {
                 "arguments": "{\"article_name\":\"The Fascinating World of Sharks\",\"article_content\":\"### The Fascinating World of Sharks\\n\\nSharks have long captivated humans with their majestic presence in the oceans. These remarkable creatures have existed for over 400 million years—cruising the seas long before dinosaurs roamed the Earth. This article explores the incredible characteristics of sharks, their adaptations, and their role in marine ecosystems.\\n\\n#### Ancient Survivors\\nOne of the most fascinating aspects of sharks is their resilience. As some of the oldest living species on the planet, they have survived multiple mass extinctions and have undergone minimal evolutionary change. Their success can be attributed to their adaptable nature and specialized hunting techniques.\\n\\n#### Incredible Senses\\nSharks possess extraordinary sensory capabilities that make them formidable predators. They can detect electrical fields produced by other marine animals through specialized sensory organs called ampullae of Lorenzini. This remarkable ability allows them to locate prey even when it is buried in sand, providing them an advantage during hunts.\\n\\n#### Swimming to Survive?\\nWhile many shark species need to swim continuously to survive—pushing oxygen-rich water over their gills—some, like nurse sharks, have adapted to pump water through their gills while resting on the ocean floor. This unique adaptation allows them to conserve energy while still meeting their respiratory needs.\\n\\n### Conclusion\\nSharks are not just fierce predators; they are vital members of marine ecosystems. Understanding their biology and behavior helps us appreciate their role in maintaining the health of ocean environments. As we learn more about these incredible creatures, we can better protect them and their habitats, ensuring that they continue to thrive in our oceans for generations to come.\"}",
                 "name": "save_article"
             },
@@ -313,7 +314,8 @@ The new body that we will POST will now look like this:
             "tool_calls": 
             [
                 {
-                    "function": {
+                    "function": 
+                    {
                         "arguments": "{\"article_name\":\"The Fascinating World of Sharks\",\"article_content\":\"### The Fascinating World of Sharks\\n\\nSharks have long captivated humans with their majestic presence in the oceans. These remarkable creatures have existed for over 400 million years—cruising the seas long before dinosaurs roamed the Earth. This article explores the incredible characteristics of sharks, their adaptations, and their role in marine ecosystems.\\n\\n#### Ancient Survivors\\nOne of the most fascinating aspects of sharks is their resilience. As some of the oldest living species on the planet, they have survived multiple mass extinctions and have undergone minimal evolutionary change. Their success can be attributed to their adaptable nature and specialized hunting techniques.\\n\\n#### Incredible Senses\\nSharks possess extraordinary sensory capabilities that make them formidable predators. They can detect electrical fields produced by other marine animals through specialized sensory organs called ampullae of Lorenzini. This remarkable ability allows them to locate prey even when it is buried in sand, providing them an advantage during hunts.\\n\\n#### Swimming to Survive?\\nWhile many shark species need to swim continuously to survive—pushing oxygen-rich water over their gills—some, like nurse sharks, have adapted to pump water through their gills while resting on the ocean floor. This unique adaptation allows them to conserve energy while still meeting their respiratory needs.\\n\\n### Conclusion\\nSharks are not just fierce predators; they are vital members of marine ecosystems. Understanding their biology and behavior helps us appreciate their role in maintaining the health of ocean environments. As we learn more about these incredible creatures, we can better protect them and their habitats, ensuring that they continue to thrive in our oceans for generations to come.\"}",
                         "name": "save_article"
                     },
@@ -347,10 +349,7 @@ The new body that we will POST will now look like this:
                             "description": "The subject or topic to search the web about."
                         }
                     },
-                    "required": 
-                    [
-                        "subject"
-                    ]
+                    "required": ["subject"]
                 }
             }
         },
@@ -376,11 +375,7 @@ The new body that we will POST will now look like this:
                             "description": "The content (body) of the article."
                         }
                     },
-                    "required": 
-                    [
-                        "article_name",
-                        "article_content"
-                    ]
+                    "required": ["article_name", "article_content"]
                 }
             }
         }
