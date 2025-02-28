@@ -103,7 +103,7 @@ You'll see that, in order to accomplish it's assigned task, the model has decide
 As specified in the system prompt (the model's explicit instructions), the model is correctly first performing research on the topic before writing the article it was asked to write.
 
 ## Step 3: We, as Developers, Perform The Web Search
-The agent has decided to search the web for the term "sharks". As developers, it is now our responsibility to set up the programmatic mechanism that searches the web (i.e. Google or Bing search with top web pages, like wikipedia for example) and then provides that content back to the model. However, for the sake of this demonstration, I'll just be providing some simple facts about sharks to keep things easy.
+The agent has decided to search the web for the term "sharks". As developers, it is now our responsibility to set up the programmatic mechanism that searches the web (i.e. Google or Bing search with top web pages, like Wikipedia for example) and then provides that content back to the model. However, for the sake of this demonstration, I'll just be providing some simple facts about sharks to keep things easy.
 
 What I will provide to the model (let's pretend this is the result of the web search):
 
@@ -213,7 +213,7 @@ The body of the next POST request would look like this:
 }
 ```
 
-In the above payload you'll see that in the `messages` array, we've provided the original tool call the model made and the results of that tool call that we made (the results of the web search). Note that the `tool_call_id` must be specified in the repsonse, directly correlating which tool call response corresponds to what tool call by the model.
+In the above payload you'll see that in the `messages` array, we've provided the original tool call the model made and the results of that tool call that we made (the results of the web search). Note that the `tool_call_id` must be specified in the response, directly correlating which tool call response corresponds to what tool call by the model.
 
 You send this to the model via a POST request.
 
@@ -390,7 +390,7 @@ You'll see above we appended two messages to the `messages` array: the tool call
 
 We send this to the agent via a POST request!
 
-## Step 7: The Model Confirms It was Succesful
+## Step 7: The Model Confirms It was Successful
 Remember, in the original system prompt, the model was instructed to do the following:
 
 ```
