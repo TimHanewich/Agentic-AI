@@ -1,15 +1,15 @@
 # Agent Example: Multi-Step Agent
-Advanced large language models with tool calling capabilities often have the intelligence to perform multiple steps in a particular sequence to successfully fulfill the requests of the user/triggering agent.
+Advanced large language agents with tool calling capabilities often have the intelligence to perform multiple steps in a particular sequence to successfully fulfill the requests of the user/triggering agent.
 
 Take the following as a simple example (this is an example tested on `GPT-4o-mini`):
 
-## Step 1: You provide the model with system instructions, available tools, and a task
-In the below example, you'll see I am sending the model several things:
-1. In the `messages` array, the model's system prompt is specified. It is given explicit instructions on its role, it's ultimate goal, but more importantly *how it will accomplish the goal*.
-2. The model is provided **tools** in the `tools` array. These are "tools" or capabilities that the model will have available to itself in its task of fulfilling the user's request.
-3. The model is given a specific request. In the `messages` array, after the system message, you'll see a user message. This user message is the user's prompt (request) to the model. You'll see that, in this case, the agent's task is to write an article about sharks.
+## Step 1: You provide the agent with system instructions, available tools, and a task
+In the below example, you'll see I am sending the agent several things:
+1. In the `messages` array, the agent's system prompt is specified. It is given explicit instructions on its role, it's ultimate goal, but more importantly *how it will accomplish the goal*.
+2. The agent is provided **tools** in the `tools` array. These are "tools" or capabilities that the agent will have available to itself in its task of fulfilling the user's request.
+3. The agent is given a specific request. In the `messages` array, after the system message, you'll see a user message. This user message is the user's prompt (request) to the agent. You'll see that, in this case, the agent's task is to write an article about sharks.
 
-With those three critical ingredients provided to the model (explicit system instructions, tools to accomplish it's task, and an assigned task), the model is asked to execute the task.
+With those three critical ingredients provided to the agent (explicit system instructions, tools to accomplish it's task, and an assigned task), the agent is asked to execute the task.
 
 ```
 {
@@ -73,10 +73,10 @@ With those three critical ingredients provided to the model (explicit system ins
 }
 ```
 
-The above JSON body is provided to the model via a POST request to the Chat Completions endpoint.
+The above JSON body is provided to the agent via a POST request to the Chat Completions endpoint.
 
-## Step 2: The Model Determines What to Do: Search the Web
-After sending this to the model via POST request, the model determines what to do and responds back (this is just the `message` property stripped out):
+## Step 2: The Agent Determines What to Do: Search the Web
+After sending this to the agent via POST request, the agent determines what to do and responds back (this is just the `message` property stripped out):
 
 ```
 {
@@ -98,14 +98,14 @@ After sending this to the model via POST request, the model determines what to d
 }
 ```
 
-You'll see that, in order to accomplish it's assigned task, the model has decided to first search the web for the term `sharks`!
+You'll see that, in order to accomplish it's assigned task, the agent has decided to first search the web for the term `sharks`!
 
-As specified in the system prompt (the model's explicit instructions), the model is correctly first performing research on the topic before writing the article it was asked to write.
+As specified in the system prompt (the agent's explicit instructions), the agent is correctly first performing research on the topic before writing the article it was asked to write.
 
 ## Step 3: We, as Developers, Perform The Web Search
-The agent has decided to search the web for the term "sharks". As developers, it is now our responsibility to set up the programmatic mechanism that searches the web (i.e. Google or Bing search with top web pages, like Wikipedia for example) and then provides that content back to the model. However, for the sake of this demonstration, I'll just be providing some simple facts about sharks to keep things easy.
+The agent has decided to search the web for the term "sharks". As developers, it is now our responsibility to set up the programmatic mechanism that searches the web (i.e. Google or Bing search with top web pages, like Wikipedia for example) and then provides that content back to the agent. However, for the sake of this demonstration, I'll just be providing some simple facts about sharks to keep things easy.
 
-What I will provide to the model (let's pretend this is the result of the web search):
+What I will provide to the agent (let's pretend this is the result of the web search):
 
 ```
 Here are some interesting facts about sharks: 1. They’ve been around forever! Sharks have existed for over 400 million years—meaning they were cruising the oceans long before dinosaurs roamed the Earth. 2. They have incredible senses. Sharks can detect electrical fields produced by other animals through special sensory organs called ampullae of Lorenzini. This allows them to locate prey even when it’s buried in sand! 3. Not all sharks have to keep swimming to survive. While many species need to swim constantly to push oxygen-rich water over their gills, some, like nurse sharks, can pump water through their gills while resting on the ocean floor.
@@ -213,12 +213,12 @@ The body of the next POST request would look like this:
 }
 ```
 
-In the above payload you'll see that in the `messages` array, we've provided the original tool call the model made and the results of that tool call that we made (the results of the web search). Note that the `tool_call_id` must be specified in the response, directly correlating which tool call response corresponds to what tool call by the model.
+In the above payload you'll see that in the `messages` array, we've provided the original tool call the agent made and the results of that tool call that we made (the results of the web search). Note that the `tool_call_id` must be specified in the response, directly correlating which tool call response corresponds to what tool call by the agent.
 
-You send this to the model via a POST request.
+You send this to the agent via a POST request.
 
-## Step 5: The Model Determines What to Do: Save the Article
-With the web search performed and the results of the web search used as a reference, the model then goes onto the next step. 
+## Step 5: The Agent Determines What to Do: Save the Article
+With the web search performed and the results of the web search used as a reference, the agent then goes onto the next step. 
 
 The response to the POST request in step 4 looks like this (this is just the message stripped out):
 
@@ -264,9 +264,9 @@ Sharks are not just fierce predators; they are vital members of marine ecosystem
 ```
 
 ## Step 6: We, as Developers, Save the Article
-The model wrote us a nice article and correctly used its tool to save its work as an article! Similarly to how we performed the web search, we must now programatically save this article to wherever we intended to save it; that could be somewhere locally on your computer or even on somewhere online like Medium or your OneDrive. 
+The agent wrote us a nice article and correctly used its tool to save its work as an article! Similarly to how we performed the web search, we must now programatically save this article to wherever we intended to save it; that could be somewhere locally on your computer or even on somewhere online like Medium or your OneDrive. 
 
-Again, for the sake of this demo, we'll pretend it is saved successfully. Like last time, to confirm this to the model, we must append both **the model's original tool call** AND **the confirmation that the tool call was successful**.
+Again, for the sake of this demo, we'll pretend it is saved successfully. Like last time, to confirm this to the agent, we must append both **the agent's original tool call** AND **the confirmation that the tool call was successful**.
 
 The new body that we will POST will now look like this:
 
@@ -386,12 +386,12 @@ The new body that we will POST will now look like this:
 }
 ```
 
-You'll see above we appended two messages to the `messages` array: the tool call by the model to save the article and the confirmation that the article save was successful.
+You'll see above we appended two messages to the `messages` array: the tool call by the agent to save the article and the confirmation that the article save was successful.
 
 We send this to the agent via a POST request!
 
-## Step 7: The Model Confirms It was Successful
-Remember, in the original system prompt, the model was instructed to do the following:
+## Step 7: The Agent Confirms It was Successful
+Remember, in the original system prompt, the agent was instructed to do the following:
 
 ```
 After this is all completed, tell me it is completed in a kind and sincere tone.
@@ -406,4 +406,4 @@ After sending the body in step 6 to the agent, the agent responds accordingly (t
 }
 ```
 
-As instructed in the system prompt, the model then kindly and sincerely confirms to the user that, after searching the web, writing the article, and saving the article, the task it was assigned is now complete!
+As instructed in the system prompt, the agent then kindly and sincerely confirms to the user that, after searching the web, writing the article, and saving the article, the task it was assigned is now complete!
