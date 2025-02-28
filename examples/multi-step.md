@@ -111,7 +111,7 @@ You'll see that, in order to accomplish it's assigned task, the agent has decide
 As specified in the system prompt (the agent's explicit instructions), the agent is correctly first performing research on the topic before writing the article it was asked to write.
 
 ## Step 3: We, as Developers, Perform The Web Search
-The agent has decided to search the web for the term "sharks". As developers, it is now our responsibility to set up the programmatic mechanism that searches the web (i.e. Google or Bing search with top web pages, like Wikipedia for example) and then provides that content back to the agent. However, for the sake of this demonstration, I'll just be providing some simple facts about sharks to keep things easy.
+The agent has decided to search the web for the term "sharks". As developers, it is now our responsibility to set up the programmatic mechanism that searches the web (i.e. Google or Bing search with top web pages, like Wikipedia for example) and then provide that content back to the agent. However, for the sake of this demonstration, I'll just be providing some simple facts about sharks to keep things easy.
 
 What I will provide to the agent (let's pretend this is the result of the web search):
 
