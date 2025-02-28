@@ -1,5 +1,5 @@
-# Agent Example: Multi-Step Agent
-Advanced large language agents with tool calling capabilities often have the intelligence to perform multiple steps in a particular sequence to successfully fulfill the requests of the user/triggering agent.
+# Agentic AI Example: Agent Using Multi-Step Problem Solving via Tool Calling
+Advanced large language models with tool calling capabilities often have the intelligence to perform multiple steps in a particular sequence to successfully fulfill the requests of the user/triggering agent.
 
 Take the following as a simple example (this is an example tested on `GPT-4o-mini`):
 
