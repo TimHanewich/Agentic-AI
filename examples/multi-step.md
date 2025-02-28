@@ -1,7 +1,7 @@
 # Agentic AI Example: Agent Using Multi-Step Problem Solving via Tool Calling
 Advanced large language models with tool calling capabilities often have the intelligence to perform multiple steps in a particular sequence to successfully fulfill the requests of the user/triggering agent.
 
-I will demonstrate this in the following example. In the following, I am creating a lightweight *ghost writer* agent. This agent's purpose will be to help me by drafting articles for me to later review and potentially publish myself. However, I also want my agent to search the web for inspiration before it writes the article. And finally, I don't want the agent to just give me the article in the chat (for me to copy + paste out), I want it to programatically save it to somewhere for me to later retrieve and review.
+I will demonstrate this in the following example. In the following, I am creating a lightweight *ghost writer* agent. This agent's purpose will be to help me by drafting articles for me to later review and potentially publish myself. However, I also want my agent to search the web for inspiration before it writes the article. And finally, I don't want the agent to just give me the article in the chat (for me to copy + paste out), I want it to programmatically save it to somewhere for me to later retrieve and review.
 
 *The following example was performed on `GPT-4o-mini` via Azure OpenAI Service.*
 
